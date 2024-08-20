@@ -32,8 +32,9 @@ namespace catchtoapp_nuget
                 }));
             }
 
-            service.AddTransient<ICatchtoappBlobStorageService, CatchtoappBlobStorageService>();
             service.AddTransient<ICatchtoappLoggingService, CatchtoappLoggingService>();
+            service.AddTransient<ICatchtoappBlobStorageService, CatchtoappBlobStorageService>();
+            
         }
     }
 }
