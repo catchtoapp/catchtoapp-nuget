@@ -14,17 +14,15 @@
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Primera version</PackageReleaseNotes>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.0.1</Version>
+    <Version>1.0.3</Version>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.21.2" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.22.0" />
+    <PackageReference Include="Microsoft.Extensions.Azure" Version="1.7.5" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\catchtoapp-nuget-blobstorage\catchtoapp-nuget-blobstorage.csproj" />
-    <ProjectReference Include="..\catchtoapp-nuget-models\catchtoapp-nuget-models.csproj" />
   </ItemGroup>
 
 </Project>
