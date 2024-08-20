@@ -36,7 +36,8 @@ namespace catchtoapp_nuget.implements
         public async Task LogRequest(RequestModel request)
         {
             var result = await _catchtoappBlobStorageService.AddFileLogger(request);
-            if (!string.IsNullOrEmpty(result)) { 
+            if (!string.IsNullOrEmpty(result))
+            {
                 _logger.LogError(result);
             }
         }

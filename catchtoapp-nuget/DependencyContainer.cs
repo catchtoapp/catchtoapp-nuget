@@ -20,7 +20,7 @@ namespace catchtoapp_nuget
             string? blobPath = Environment.GetEnvironmentVariable("UriStorageAccount");
             if (!string.IsNullOrEmpty(blobPath))
             {
-                service.AddAzureClients(c => c.AddBlobServiceClient(blobPath)
+                service.AddAzureClients(c => c.AddBlobServiceClient(new Uri(blobPath))
                 .WithCredential(new DefaultAzureCredential())
                 .ConfigureOptions(o =>
                 {
