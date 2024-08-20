@@ -5,6 +5,15 @@
     <RootNamespace>catchtoapp_nuget</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Title>CatchtoappLibrary</Title>
+    <Authors>Melendez Varas, Jhosep Jeiner</Authors>
+    <Company>Catchtoapp</Company>
+    <Product>CatchtoappLibrary</Product>
+    <Description>Contratos comunes para todos los proyectos</Description>
+    <RepositoryUrl>https://github.com/catchtoapp/catchtoapp-nuget</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Primera version</PackageReleaseNotes>
+    <NeutralLanguage>en-US</NeutralLanguage>
   </PropertyGroup>
 
   <ItemGroup>
