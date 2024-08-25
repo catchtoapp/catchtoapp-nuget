@@ -12,15 +12,16 @@ namespace catchtoapp_nuget
     [ExcludeFromCodeCoverage(Justification = "Class static for container dependency")]
     public static class DependencyContainer
     {
-        public static void AddCatchtoappContainerLogger(this IServiceCollection service)
+        public static void AddCatchtoappContainerLogger(this IServiceCollection services)
         {
-            service.AddLogging();
-            service.AddApplicationInsightsTelemetry();
+            services.AddHttpClient();
+            services.AddLogging();
+            services.AddApplicationInsightsTelemetry();
 
             string? blobPath = Environment.GetEnvironmentVariable("UriStorageAccount");
             if (!string.IsNullOrEmpty(blobPath))
             {
-                service.AddAzureClients(c => c.AddBlobServiceClient(new Uri(blobPath))
+                services.AddAzureClients(c => c.AddBlobServiceClient(new Uri(blobPath))
                 .WithCredential(new DefaultAzureCredential())
                 .ConfigureOptions(o =>
                 {
@@ -32,9 +33,10 @@ namespace catchtoapp_nuget
                 }));
             }
 
-            service.AddTransient<ICatchtoappLoggingService, CatchtoappLoggingService>();
-            service.AddTransient<ICatchtoappBlobStorageService, CatchtoappBlobStorageService>();
-            
+            services.AddTransient<ICatchtoappLoggingService, CatchtoappLoggingService>();
+            services.AddTransient<ICatchtoappBlobStorageService, CatchtoappBlobStorageService>();
+            services.AddTransient<ICatchtoappAuthenticationService, CatchtoappAuthenticationService>();
+            services.AddTransient<ICatchtoappRestClientService, CatchtoappRestClientService>();
         }
     }
 }
